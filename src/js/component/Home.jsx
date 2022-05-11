@@ -1,7 +1,8 @@
 import React from "react";
 import "../../styles/home.css";
-import Recipes  from "./Recipes.jsx";
+import Recipes  from "./RecipesByCategory.jsx";
 
-export const Home = () => {
+const Home = () => {
   return <div className="text-center mt-5"><Recipes/></div>;
 };
+export default Home;

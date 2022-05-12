@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from "react"
 import { Context } from "../store/appContext"
+import { Card } from "./Cards.jsx"
 
 const RecipesbyCategory = () => {
   const [categoryData, setCategoryData] = useState([])
@@ -13,8 +14,8 @@ const RecipesbyCategory = () => {
       <main>
           {store.recipesbyCategory.categories && store.recipesbyCategory.categories.map((recipe, index) => {
             return (
-              <p key={index}>{recipe.strCategory}</p>
-            )
+                 <Card/>
+              )
           })}     
       </main>
       

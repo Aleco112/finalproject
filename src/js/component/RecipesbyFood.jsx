@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react"
 import { Context } from "../store/appContext"
 import { Card } from "./Cards.jsx"
-import {FoodList} from ".FoodList.jsx"
+import {FoodList} from "../component/FoodList.jsx"
 
 const RecipesbyFood = () => {
   const [foodData, setFoodData] = useState([])

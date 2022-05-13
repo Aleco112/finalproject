@@ -7,7 +7,10 @@ import "../styles/index.css";
 
 //import your own components
 import Layout from "./layout";
-import  {initializeApp}  from "firebase/app";
+// firebase imports
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+import { getAuth } from "firebase/auth";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -20,11 +23,12 @@ const fireBaseConfig = {
   storageBucket: process.env.projectId,
   messagingSenderId: process.env.messagingSenderId,
   appId: process.env.appId
-};
-
+}
+console.log(fireBaseConfig)
 // Initialize Firebase
-export const myApp = initializeApp(fireBaseConfig);
-
+//const app = initializeApp(fireBaseConfig);
+//const analytics = getAnalytics(app);
+//const auth = getAuth(app)
 //render your react application
 ReactDOM.render(<Layout />, document.querySelector("#app"));
 

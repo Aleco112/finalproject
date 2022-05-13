@@ -11,6 +11,7 @@ import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import RecipesByCategory from "./component/RecipesByCategory.jsx";
 import Logueo  from "./component/Logueo.jsx";
+import RecipesbyFood from "./component/RecipesbyFood.jsx";
 
 //create your first component
 const Layout = () => {
@@ -33,6 +34,9 @@ const Layout = () => {
             </Route>
             <Route exact path="/categories">
               <RecipesByCategory />
+            </Route>
+            <Route exact path="/foods">
+              <RecipesByFood />
             </Route>
             <Route exact path="/demo">
               <Demo />

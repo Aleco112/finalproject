@@ -16,7 +16,7 @@ console.log(store.recipesbyFood)
         console.log (foodData)
     })}
  <div className="card" style="width: 18rem;">
-  <img  src="..." className={foodData.strMealThumb} alt="..."></img>
+  <img  src="..." className={foodData.strMealThumb} alt="..."/>
   <div className="card-body">
     <h5 className="card-title">{foodData.strMeal}</h5>
     <Link to="/">  <button  className="btn btn-primary">Take me to the recipe </button> </Link>

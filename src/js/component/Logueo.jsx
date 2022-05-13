@@ -6,8 +6,8 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 
-const auth = getAuth();
-const Logueo = () => {
+//const auth = getAuth();
+//const Logueo = () => {
   const [isSignUp, setSignUp] = useState(false);
   async function submitHandler(e) {
     e.preventDefault();

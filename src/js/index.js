@@ -26,9 +26,9 @@ const fireBaseConfig = {
 }
 console.log(fireBaseConfig)
 // Initialize Firebase
-//const app = initializeApp(fireBaseConfig);
-//const analytics = getAnalytics(app);
-//const auth = getAuth(app)
+const app = initializeApp(fireBaseConfig);
+const analytics = getAnalytics(app);
+const auth = getAuth(app)
 //render your react application
 ReactDOM.render(<Layout />, document.querySelector("#app"));
 

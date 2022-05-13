@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import getState from "./flux.js";
-import Home from "../component/Home.jsx"
-import Logueo from "../component/Logueo.jsx"
+
 
 
 //function app() {
@@ -31,7 +30,7 @@ const injectContext = PassedComponent => {
 
 		useEffect(() => {
 			state.actions.getCategories()
-			state.actions.getFoods ()
+			
 			/**
 			 * EDIT THIS!
 			 * This function is the equivalent to "window.onLoad", it only runs once on the entire application lifetime

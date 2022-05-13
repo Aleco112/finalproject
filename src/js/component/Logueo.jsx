@@ -6,8 +6,8 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 
-//const auth = getAuth();
-//const Logueo = () => {
+const auth = getAuth();
+export const Logueo = () => {
   const [isSignUp, setSignUp] = useState(false);
   async function submitHandler(e) {
     e.preventDefault();
@@ -69,4 +69,3 @@ import {
     </form>
   );
 };
-export default Logueo;

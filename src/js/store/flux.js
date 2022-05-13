@@ -12,7 +12,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           })
           .catch((error) => console.log("error", error));
       },
-      actions: {
+    
         getFoodList: () => {
           fetch("https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood")
             .then((response) => response.json())
@@ -22,7 +22,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             .catch((error) => console.log("error", error));
         },
 
-      },
+      
     },
   }
 }

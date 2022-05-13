@@ -1,11 +1,31 @@
 import React, { useState } from "react";
 
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+
+const auth = getAuth();
 const Logueo = () => {
   const [isSignUp, setSignUp] = useState(false);
+  async function submitHandler(e) {
+    e.preventDefault();
+    const email = e.target.staticEmail2.value;
+    const password = e.target.inputPassword2.value;
+    console.log(user, email, password);
+    if (isSignUp) {
+      //si se esta registrando crea cuenta
+      const user = await createUserWithEmailAndPassword(auth, email, password);
+    }
+    //si inicia sesion
+    signInWithEmailAndPassword(auth, email, password);
+  }
+
   return (
-    <form className="row g-3">
+    <form className="row g-3 " onSubmit={submitHandler}>
       <div class="col-auto">
-        <label for="staticEmail2" className="visually-hidden">
+        <label htmlFor="staticEmail2" className="visually-hidden">
           Email
         </label>
         <input

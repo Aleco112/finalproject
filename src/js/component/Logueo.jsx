@@ -12,10 +12,12 @@ export const Logueo = () => {
     e.preventDefault();
     const email = e.target.staticEmail2.value;
     const password = e.target.inputPassword2.value;
-    console.log(user, email, password);
+    console.log(email, password);
+
     if (isSignUp) {
       //si se esta registrando crea cuenta
       const user = await createUserWithEmailAndPassword(getAuth(), email, password) ;
+      console.log(user,email,password)
     }
     //si inicia sesion
     signInWithEmailAndPassword(getAuth(), email, password);
@@ -23,20 +25,21 @@ export const Logueo = () => {
 
   return (
     <form className="row g-3 " onSubmit={submitHandler}>
-      <div class="col-auto">
+      <div className="col-auto">
         <label htmlFor="staticEmail2" className="visually-hidden">
           Email
         </label>
         <input
           type="text"
-          readonly
           className="form-control-plaintext"
           id="staticEmail2"
-          value="email@example.com"
+         
+          placeholder="email"
+         
         />
       </div>
       <div className="col-auto">
-        <label for="inputPassword2" className="visually-hidden">
+        <label htmlFor="inputPassword2" className="visually-hidden">
           Password
         </label>
         <input

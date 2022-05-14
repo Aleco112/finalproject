@@ -6,7 +6,6 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 
-const auth = getAuth();
 export const Logueo = () => {
   const [isSignUp, setSignUp] = useState(false);
   async function submitHandler(e) {
@@ -16,10 +15,10 @@ export const Logueo = () => {
     console.log(user, email, password);
     if (isSignUp) {
       //si se esta registrando crea cuenta
-      const user = await createUserWithEmailAndPassword(auth, email, password);
+      const user = await createUserWithEmailAndPassword(getAuth(), email, password) ;
     }
     //si inicia sesion
-    signInWithEmailAndPassword(auth, email, password);
+    signInWithEmailAndPassword(getAuth(), email, password);
   }
 
   return (

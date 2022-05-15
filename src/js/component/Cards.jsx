@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { Context } from "../store/appContext.js";
 import RecipesbyCategory from "./RecipesByCategory.jsx";
@@ -7,21 +8,22 @@ import RecipesbyCategory from "./RecipesByCategory.jsx";
 export const Card = () => {
   
     const { store, actions } = useContext(Context)
-console.log(store.recipesbyCategory)
     return (
         <>   
-    {store.recipesbyCategory &&
-    store.recipesbyCategory.map((categoryData,index)=>{
-        console.log (categoryData)
+    {store.recipesbyCategory.categories &&
+    store.recipesbyCategory.categories.map((categoryData,index)=>{
+        return(
+        <div key={index} className="card" style={{width: "18rem"}}>
+        <img src={categoryData.strCategoryThumb} className="card-img-top" alt="..."/>
+        <div className="card-body">
+          <h5 className="card-title">{categoryData.strCategory}</h5>
+          <Link to="/"> <button className="btn btn-primary">See all recipes </button></Link>
+            </div>
+      
+      </div>)
     })}
-    <div className="card" style={{width: "18rem"}}>
-  <img src="categoryData./images/media/meals/llcbn01574260722.jpg/preview" className="card-img-top" alt="..."/>
-  <div className="card-body">
-    <h5 className="card-title">{categoryData.strCategory}</h5>
-    <Link to="/"> <button className="btn btn-primary">See all recipes </button></Link>
-      </div>
+   
 
-</div>
         </>
  );
 };

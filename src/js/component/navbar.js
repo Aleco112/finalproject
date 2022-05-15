@@ -18,7 +18,8 @@ export const Navbar = () => {
           <a className="nav-link" href="#">Contact us!</a>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#">Recipes by Category</a>
+          <Link className="nav-link" to="/categories">Recipes by Category</Link>
+          
         </li>
         
       </ul>

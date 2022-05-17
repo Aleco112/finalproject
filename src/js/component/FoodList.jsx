@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { Context } from "../store/appContext.js";
 import RecipesbyCategory from "./RecipesByCategory.jsx";
 import RecipesbyFood from "./RecipesbyFood.jsx";
-import { useParams } from "react-router";
+import { useHistory, useParams } from "react-router-dom";
 
 
 export const FoodList = () => {

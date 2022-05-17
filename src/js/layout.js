@@ -11,7 +11,7 @@ import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import RecipesByCategory from "./component/RecipesByCategory.jsx";
 import {Logueo}  from "./component/Logueo.jsx";
-
+import {FoodList} from "./component/FoodList.jsx"
 //create your first component
 const Layout = () => {
   //the basename is used when your project is published in a subdirectory and not in the root of the domain
@@ -33,6 +33,9 @@ const Layout = () => {
             </Route>
             <Route exact path="/categories">
               <RecipesByCategory />
+            </Route>
+            <Route exact path="/categories/:foodtype">
+              <FoodList />
             </Route>
             <Route exact path="/demo">
               <Demo />

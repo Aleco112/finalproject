@@ -4,8 +4,9 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  signInWithRedirect, GoogleAuthProvider
 } from "firebase/auth";
-
+const googleProvider=newGoogleProvider();
 export const Logueo = () => {
   const [isSignUp, setSignUp] = useState(false);
   async function submitHandler(e) {
@@ -56,9 +57,11 @@ export const Logueo = () => {
       </div>
 
       <div>
-        <button type="button" className="btn btn-primary btn-lg">
+        
+        <button onClick={()=>signInWithRedirect(getAuth,googleProvider)} type="button" className="btn btn-primary btn-lg">
           Google Access
         </button>
+        
         <button
           className="btn btn-secondary btn-lg"
           onClick={() => setSignUp(!isSignUp)}

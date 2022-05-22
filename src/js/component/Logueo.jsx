@@ -4,10 +4,11 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  signInWithRedirect, GoogleAuthProvider
 } from "firebase/auth";
-const googleProvider=newGoogleProvider();
+import { useHistory } from "react-router-dom";
+
 export const Logueo = () => {
+  let history=useHistory()
   const [isSignUp, setSignUp] = useState(false);
   async function submitHandler(e) {
     e.preventDefault();
@@ -17,11 +18,16 @@ export const Logueo = () => {
 
     if (isSignUp) {
       //si se esta registrando crea cuenta
-      const user = await createUserWithEmailAndPassword(getAuth(), email, password) ;
-      console.log(user,email,password)
+      const user = await createUserWithEmailAndPassword(
+        getAuth(),
+        email,
+        password
+      ).then(signInWithEmailAndPassword(getAuth(), email, password));
+      console.log(user, email, password);
     }
+
     //si inicia sesion
-    signInWithEmailAndPassword(getAuth(), email, password);
+  history.push("/home")
   }
 
   return (
@@ -34,9 +40,7 @@ export const Logueo = () => {
           type="text"
           className="form-control-plaintext"
           id="staticEmail2"
-         
           placeholder="email"
-         
         />
       </div>
       <div className="col-auto">
@@ -57,11 +61,6 @@ export const Logueo = () => {
       </div>
 
       <div>
-        
-        <button onClick={()=>signInWithRedirect(getAuth,googleProvider)} type="button" className="btn btn-primary btn-lg">
-          Google Access
-        </button>
-        
         <button
           className="btn btn-secondary btn-lg"
           onClick={() => setSignUp(!isSignUp)}

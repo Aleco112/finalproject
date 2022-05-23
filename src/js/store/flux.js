@@ -2,6 +2,7 @@ const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
       recipesbyCategory: [],
+     FoodList:[]
     },
     actions: {
       getCategories: () => {
@@ -12,9 +13,9 @@ const getState = ({ getStore, getActions, setStore }) => {
           })
           .catch((error) => console.log("error", error));
       },
-    
-        getFoodList: () => {
-          fetch("https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood")
+      
+        getFoodList: (id,name) => {
+          fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${name}`)
             .then((response) => response.json())
             .then((result) => {
               setStore({ FoodList: result });

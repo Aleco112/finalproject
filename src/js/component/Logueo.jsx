@@ -1,75 +1,55 @@
-import React, { useState } from "react";
-
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-} from "firebase/auth";
+import React, {useState} from "react";
+import rigoImage from "../../img/rigo-baby.jpg";
+import "../../styles/home.css";
+import {signIn} from "../utilities/signin";
 import { useHistory } from "react-router-dom";
 
-export const Logueo = () => {
-  let history=useHistory()
-  const [isSignUp, setSignUp] = useState(false);
-  async function submitHandler(e) {
-    e.preventDefault();
-    const email = e.target.staticEmail2.value;
-    const password = e.target.inputPassword2.value;
-    console.log(email, password);
+    export const Logueo = () => {
+      const history=useHistory()
+      const [email, setEmail]= useState("");
+      const [password , setPassword] =useState("");
+      return(
+<form>
+  <div className="mb-3">
+    <label for="exampleInputEmail1" 
+    className="form-label">Email address</label>
+    <input type="email" 
+    className="form-control" 
+    id="exampleInputEmail1" 
+    aria-describedby="emailHelp"
+   onChange={(event)=>{setEmail(event.target.value)}}
+   value={email}/>
+  </div>
+  <div className="mb-3">
+    <label for="exampleInputPassword1" className="form-label"
+    >Password</label>
+    <input type="password" 
+    className="form-control"
+     id="exampleInputPassword1"
+     onChange={(event)=>{setPassword(event.target.value)}}
+   value={password}/>
+     
+  </div>
+  
+  <div className="mb-3 form-check">
+    <input type="checkbox" 
+    className="form-check-input" 
+    id="exampleCheck1"/>
 
-    if (isSignUp) {
-      //si se esta registrando crea cuenta
-      const user = await createUserWithEmailAndPassword(
-        getAuth(),
-        email,
-        password
-      ).then(signInWithEmailAndPassword(getAuth(), email, password));
-      console.log(user, email, password);
+    <label className="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+  <button onClick={(event)=>{
+
+    if (email !=="" && password !== ""){
+      signIn(email,password)
+      history.push("/categories")
+      event.preventDefault()
     }
-
-    //si inicia sesion
-  history.push("/home")
   }
-
-  return (
-    <form className="row g-3 " onSubmit={submitHandler}>
-      <div className="col-auto">
-        <label htmlFor="staticEmail2" className="visually-hidden">
-          Email
-        </label>
-        <input
-          type="text"
-          className="form-control-plaintext"
-          id="staticEmail2"
-          placeholder="email"
-        />
-      </div>
-      <div className="col-auto">
-        <label htmlFor="inputPassword2" className="visually-hidden">
-          Password
-        </label>
-        <input
-          type="password"
-          className="form-control"
-          id="inputPassword2"
-          placeholder="Password"
-        />
-      </div>
-      <div className="col-auto">
-        <button type="submit" className="btn btn-primary mb-3">
-          {isSignUp ? "Sign Up" : "Start Sesion"}
-        </button>
-      </div>
-
-      <div>
-        <button
-          className="btn btn-secondary btn-lg"
-          onClick={() => setSignUp(!isSignUp)}
-        >
-          {isSignUp
-            ? "Ya tienes cuenta? Inicia Sesion"
-            : "No tienes cuenta? Sign Up "}
-        </button>{" "}
-      </div>
-    </form>
-  );
-};
+  }>
+    signIn
+ 
+  </button>
+  
+</form>
+)};

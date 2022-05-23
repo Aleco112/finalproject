@@ -34,7 +34,7 @@ const Layout = () => {
             <Route exact path="/categories">
               <RecipesByCategory />
             </Route>
-            <Route exact path="/categories/:foodtype">
+            <Route exact path="/categories/:theid">
               <FoodList />
             </Route>
             <Route exact path="/demo">

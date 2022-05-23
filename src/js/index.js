@@ -12,18 +12,20 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
 
-// TODO: Add SDKs for Firebase products that you want to use
+ //TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 const fireBaseConfig = {
-  apiKey: process.env.apiKey,
-  authDomain: process.env.authDomain,
-  projectId: process.env.projectId,
-  storageBucket: process.env.projectId,
-  messagingSenderId: process.env.messagingSenderId,
-  appId: process.env.appId
-}
+  apiKey: "AIzaSyD78_3SE_xqh5oC9o-bxUgBcXVpZHskvKE",
+  authDomain: "aleco112.firebaseapp.com",
+  projectId: "aleco112",
+  storageBucket: "aleco112.appspot.com",
+  messagingSenderId: "909997142636",
+  appId: "1:909997142636:web:61db21b17f9f65df9dde49",
+  measurementId: "G-3YN4B1LDF5"
+} 
+
 console.log(fireBaseConfig)
 // Initialize Firebase
 const app = initializeApp(fireBaseConfig);

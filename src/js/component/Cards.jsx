@@ -8,6 +8,7 @@ import RecipesbyCategory from "./RecipesByCategory.jsx";
 export const Card = () => {
 
   const { store, actions } = useContext(Context)
+  console.log(store)
   return (
     <>
       {store.recipesbyCategory.categories &&
@@ -16,8 +17,14 @@ export const Card = () => {
             <div key={index} className="card" style={{ width: "18rem" }}>
               <img src={categoryData.strCategoryThumb} className="card-img-top" alt="..." />
               <div className="card-body">
-                <h5 className="card-title">{categoryData.strCategory}</h5>
-                <Link to={`categories/${categoryData.strCategory}`}> <button className="btn btn-primary">See all recipes </button></Link>
+                <h5 className="card-title"></h5>
+                <Link to={`categories/`+categoryData.idCategory}> 
+                <button 
+                onClick={()=>
+                {
+                  actions.getFoodList(categoryData.idCategory,categoryData.strCategory)
+
+                }} className="btn btn-primary">See all recipes </button></Link>
               </div>
 
             </div>)

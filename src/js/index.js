@@ -16,7 +16,7 @@ import { getAuth } from "firebase/auth";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
-const fireBaseConfig = {
+ const fireBaseConfig = {
   apiKey: "AIzaSyD78_3SE_xqh5oC9o-bxUgBcXVpZHskvKE",
   authDomain: "aleco112.firebaseapp.com",
   projectId: "aleco112",
@@ -25,7 +25,7 @@ const fireBaseConfig = {
   appId: "1:909997142636:web:61db21b17f9f65df9dde49",
   measurementId: "G-3YN4B1LDF5"
 } 
-
+export default fireBaseConfig;
 console.log(fireBaseConfig)
 // Initialize Firebase
 const app = initializeApp(fireBaseConfig);

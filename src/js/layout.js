@@ -6,12 +6,11 @@ import { Home } from "./views/home";
 import { Demo } from "./views/demo";
 import { Single } from "./views/single";
 import injectContext from "./store/appContext";
-
-import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import RecipesByCategory from "./component/RecipesByCategory.jsx";
-import {Logueo}  from "./component/Logueo.jsx";
-import {FoodList} from "./component/FoodList.jsx"
+import {Login}  from "./component/Login.jsx";
+import {FoodList} from "./component/FoodList.jsx";
+import {SignUp} from "./component/Signup.jsx"
 //create your first component
 const Layout = () => {
   //the basename is used when your project is published in a subdirectory and not in the root of the domain
@@ -22,11 +21,13 @@ const Layout = () => {
     <div>
       <BrowserRouter basename={basename}>
         <ScrollToTop>
-          <Navbar />
           
           <Switch>
             <Route exact path="/">
-              <Logueo/>
+              <SignUp/>
+            </Route>
+            <Route exact path="/login">
+              <Login/>
             </Route>
             <Route exact path="/home">
               <Home/>

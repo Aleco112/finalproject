@@ -4,7 +4,7 @@ import "../../styles/home.css";
 import {signIn} from "../utilities/signin";
 import { useHistory } from "react-router-dom";
 
-    export const Logueo = () => {
+    export const Login= () => {
       const history=useHistory()
       const [email, setEmail]= useState("");
       const [password , setPassword] =useState("");

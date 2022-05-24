@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { Context } from "../store/appContext.js";
 import RecipesbyCategory from "./RecipesByCategory.jsx";
-
+import { Navbar } from "./navbar";
 
 export const Card = () => {
 
@@ -11,6 +11,7 @@ export const Card = () => {
   console.log(store)
   return (
     <>
+    <Navbar/>
       {store.recipesbyCategory.categories &&
         store.recipesbyCategory.categories.map((categoryData, index) => {
           return (

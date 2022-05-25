@@ -2,7 +2,8 @@ const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
       recipesbyCategory: [],
-     FoodList:[]
+     FoodList:[],
+     Ingredients:[]
     },
     actions: {
       getCategories: () => {
@@ -21,6 +22,15 @@ const getState = ({ getStore, getActions, setStore }) => {
               setStore({ FoodList: result });
             })
             .catch((error) => console.log("error", error));
+        },
+
+        getItems: ()=>{
+          fetch("https://www.themealdb.com/api/json/v1/1/list.php?i=list")
+          .then((response)=>response.json())
+          .then((result)=>{
+            setStore({Ingredients: result});
+          })
+          .catch((error)=>console.log("error",error));
         },
 
       

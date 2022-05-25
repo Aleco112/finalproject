@@ -22,7 +22,7 @@ export const FoodList = () => {
                     <img src={foodData.strMealThumb} alt="..." />
                     <div className="card-body">
                         <h5 className="card-title">{foodData.strMeal}</h5>
-                        <Link to="/">  <button className="btn btn-primary">Take me to the recipe </button> </Link>
+                        <Link to={"/Ingredients/"+foodData.idMeal}>  <button className="btn btn-primary">Take me to the recipe </button> </Link>
                     </div>
                 </div>
                     )

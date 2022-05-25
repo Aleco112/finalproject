@@ -11,6 +11,7 @@ import RecipesByCategory from "./component/RecipesByCategory.jsx";
 import {Login}  from "./component/Login.jsx";
 import {FoodList} from "./component/FoodList.jsx";
 import {SignUp} from "./component/Signup.jsx"
+import { Ingredients } from "./component/Ingredients.jsx";
 //create your first component
 const Layout = () => {
   //the basename is used when your project is published in a subdirectory and not in the root of the domain
@@ -34,6 +35,9 @@ const Layout = () => {
             </Route>
             <Route exact path="/categories">
               <RecipesByCategory />
+            </Route>
+            <Route exact path="/Ingredients/:theid">
+              <Ingredients />
             </Route>
             <Route exact path="/categories/:theid">
               <FoodList />

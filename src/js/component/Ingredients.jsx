@@ -1,11 +1,15 @@
-import React,{useContext} from 'react';
-import { Link } from "react-router-dom";
-import { useHistory } from "react-router-dom";
+import React,{useContext,useEffect} from 'react';
+import { useHistory,useParams,Link } from "react-router-dom";
 import { Context } from "../store/appContext.js";
 import { Navbar } from "./navbar";
 
 export const Ingredients=()=> {
     const { store, actions } = useContext(Context)
+    let { id } = useParams();
+    useEffect(() => {
+     actions.getRecipe(id)
+      console.log("recipe",store.recipe)
+    }, [])
   return (
     <>
      <Navbar/>

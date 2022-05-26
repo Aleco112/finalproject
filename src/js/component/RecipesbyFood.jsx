@@ -8,9 +8,7 @@ const RecipesbyFood = () => {
   const [foodData, setFoodData] = useState([])
   const { store, actions } = useContext(Context)
   console.log(store)
-  useEffect(() => {
-    console.log("foods", store.RecipesbyFood.foods)
-  }, [store.RecipesbyFood])
+  
 
   return (
     <main>

@@ -22,7 +22,7 @@ export const FoodList = () => {
                     <img src={foodData.strMealThumb} alt="..." />
                     <div className="card-body">
                         <h5 className="card-title">{foodData.strMeal}</h5>
-                        <Link to={"/Ingredients/"+foodData.idMeal}>  <button className="btn btn-primary">Take me to the recipe </button> </Link>
+                        <Link to={"/recipe/"+foodData.idMeal}>  <button className="btn btn-primary">Take me to the recipe </button> </Link>
                     </div>
                 </div>
                     )
@@ -31,4 +31,7 @@ export const FoodList = () => {
         </>
     );
 };
+
+////use history and onclick in the button, inside the onclick the actions on flux to get the recipe, 
+//after the call the action you going to send to the page instead to use link, use use history (Contactlist)
 

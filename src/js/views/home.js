@@ -1,11 +1,17 @@
 import React from "react";
-import "../../styles/home.css";
+
+
 
 export const Home = () => (
-	<div className="text-center mt-5">
+	
+  
+  <div className="text-center mt-5">
+	  
 		<h1>Recipes Temple</h1>
 		<p>
-			<img src="https://as1.ftcdn.net/v2/jpg/01/65/38/54/1000_F_165385492_8aqTKbAXMX7daHuthK74kywA5S3KmZtl.jpg" />
+			<img src="https://cdn.pixabay.com/photo/2014/04/05/11/27/buffet-315691_960_720.jpg" />
 		</p>
+	
 	</div>
+	
 );

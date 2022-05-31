@@ -4,9 +4,14 @@ const getState = ({ getStore, getActions, setStore }) => {
       recipesbyCategory: [],
       FoodList: [],
       Ingredients: [],
-      recipe:[]
+      recipe:[],
+      user:null
     },
     actions: {
+      user:(user)=>{
+        setStore({user:user})
+      },
+
       getCategories: () => {
         fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
           .then((response) => response.json())

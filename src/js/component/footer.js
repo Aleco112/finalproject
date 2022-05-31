@@ -2,9 +2,8 @@ import React, { Component } from "react";
 
 export const Footer = () => (
 	<footer className="footer mt-auto py-3 text-center">
-		<p>
-			Made with <i className="fa fa-heart text-danger" /> by{" "}
-			<a href="http://www.4geeksacademy.com">4Geeks Academy</a>
-		</p>
+		
+			<img src="https://cdn.pixabay.com/photo/2017/06/10/07/20/noodle-2389221_960_720.png"/>
+		
 	</footer>
 );

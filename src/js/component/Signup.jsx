@@ -1,24 +1,33 @@
-import React, {useState} from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { Context } from "../store/appContext.js";
 import { useHistory } from "react-router-dom";
 import fireBaseConfig from "../index.js";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { Link } from "react-router-dom";
 
 export const SignUp = () => {
-  const [currentUser, setCurrentUser] = useState(null);   
-  const history=useHistory() 
+  const { store, actions } = useContext(Context);
+  const [currentUser, setCurrentUser] = useState(null);
+  const history = useHistory();
   const handleSubmit = (e) => {
-    e.preventDefault();    
+    e.preventDefault();
     const { email, password } = e.target.elements;
     try {
-     return createUserWithEmailAndPassword(getAuth(), email.value, password.value);      
-      
+      createUserWithEmailAndPassword(
+        getAuth(),
+        email.value,
+        password.value
+      ).then((credential) => {
+        localStorage.setItem("user", credential.user.email);
+        actions.user(credential.user.email);
+      });
     } catch (error) {
       alert(error);
     }
   };
- /* if (currentUser) {
-      return history.push("/login")
-  }*/
+  useEffect(() => {
+    store.user ? history.push("/home") : "";
+  }, [store.user]);
   return (
     <>
       <h1>Sign Up</h1>
@@ -29,7 +38,12 @@ export const SignUp = () => {
         <input type="password" name="password" placeholder="Password" />
         <button type="submit">Submit</button>
       </form>
+      <div>
+        <h5> si tienes una cuenta </h5>
+        <Link to="/login">
+          <button className="btn btn-primary"> Log in </button>
+        </Link>
+      </div>
     </>
   );
 };
-

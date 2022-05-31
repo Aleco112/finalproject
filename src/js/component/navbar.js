@@ -1,30 +1,85 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import { Context } from "../store/appContext";
+
+import { getAuth, signOut } from "firebase/auth";
 
 export const Navbar = () => {
-	return (
-		<nav className="navbar navbar-expand-lg navbar-light bg-light">
-  <div className="container-fluid">
-    <Link to="/login" className="navbar-brand">Login</Link>
-    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span className="navbar-toggler-icon"></span>
-    </button>
-    <div className="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul className="navbar-nav">
-        <li className="nav-item">
-          <Link to="/login" className="nav-link active" aria-current="page" href="#">Home</Link>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link" href="#">Contact us!</a>
-        </li>
-        <li className="nav-item">
-          <Link className="nav-link" to="/categories">Recipes by Category</Link>
-          
-        </li>
-        
-      </ul>
-    </div>
-  </div>
-</nav>
-	);
+  const { store, actions } = useContext(Context);
+  let history = useHistory()
+  const logOut = () => {
+    signOut(getAuth());
+  };
+  return (
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      {store.user ? (
+        <div className="container-fluid">
+          <button
+            className="btn btn-secondary"
+            onClick={() => {
+              actions.logOut();
+              logOut();
+            }}
+          >
+            Log Out
+          </button>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul className="navbar-nav">
+              <li className="nav-item">
+                <Link
+                  to="/login"
+                  className="nav-link active"
+                  aria-current="page"
+                  href="#"
+                >
+                  Home
+                </Link>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="#">
+                  Contact us!
+                </a>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/categories">
+                  Recipes by Category
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      ) : (
+        <>
+          <button
+            className="btn btn-secondary"
+            onClick={() => {
+              history.push('/')
+            }}
+          >
+            Sign Up
+          </button>
+          <button
+            className="btn btn-secondary"
+            onClick={() => {
+              history.push('/login')
+            }}
+          >
+            Log In
+          </button>
+        </>
+      )}
+    </nav>
+  );
 };

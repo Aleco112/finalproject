@@ -8,11 +8,12 @@ import { Single } from "./views/single";
 import injectContext from "./store/appContext";
 import { Footer } from "./component/footer";
 import RecipesByCategory from "./component/RecipesByCategory.jsx";
-import {Login}  from "./component/Login.jsx";
-import {FoodList} from "./component/FoodList.jsx";
-import {SignUp} from "./component/Signup.jsx"
+import { Login } from "./component/Login.jsx";
+import { FoodList } from "./component/FoodList.jsx";
+import { SignUp } from "./component/Signup.jsx"
 import RecipesbyFood from "./component/RecipesbyFood.jsx";
 import { Recipe } from "./component/Recipe.jsx";
+import { Navbar } from "./component/navbar";
 //create your first component
 const Layout = () => {
   //the basename is used when your project is published in a subdirectory and not in the root of the domain
@@ -23,32 +24,40 @@ const Layout = () => {
     <div>
       <BrowserRouter basename={basename}>
         <ScrollToTop>
-          
+<Navbar/>
           <Switch>
             <Route exact path="/">
-              <SignUp/>
+              <SignUp />
             </Route>
             <Route exact path="/login">
-              <Login/>
+              <Login />
             </Route>
-            <Route exact path="/home">
-              <Home/>
-            </Route>
-            <Route exact path="/categories">
-              <RecipesByCategory />
-            </Route>
-            <Route exact path="/recipe/:theid">
-              <Recipe/>
-            </Route>
-            <Route exact path="/categories/:theid">
-              <FoodList />
-            </Route>
-            <Route exact path="/demo">
-              <Demo />
-            </Route>
-            <Route exact path="/single/:theid">
-              <Single />
-            </Route>
+            {localStorage.getItem("user") ?
+              <>
+                <Route exact path="/home">
+                  <Home />
+                </Route>
+                <Route exact path="/categories">
+                  <RecipesByCategory />
+                </Route>
+                <Route exact path="/recipe/:theid">
+                  <Recipe />
+                </Route>
+                <Route exact path="/categories/:theid">
+                  <FoodList />
+                </Route>
+                <Route exact path="/demo">
+                  <Demo />
+                </Route>
+                <Route exact path="/single/:theid">
+                  <Single />
+                </Route>
+              </>
+              :
+              <Route>
+                <h1>Not found!</h1>
+              </Route>
+            }
             <Route>
               <h1>Not found!</h1>
             </Route>

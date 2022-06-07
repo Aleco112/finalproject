@@ -50,6 +50,11 @@ footer img {
     width: calc(25% - 20px) !important;
     margin: 10px;
 }
+.cat-list > .card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
 .cat-list > .card button {
     width: 100%;
 }

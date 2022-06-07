@@ -14,7 +14,7 @@ const RecipesbyFood = () => {
     <main>
       {store.recipesbyFood.foods && store.recipesbyFood.foods.map((food, index) => {
         return (
-          <p>holamundo</p>
+          <p>Error</p>
         )
       })}
     </main>

@@ -14,20 +14,27 @@ export const FoodList = () => {
     console.log(store)
     return (
         <>
-        <h1>{foodtype}</h1>
-            {store.FoodList.meals &&
-                store.FoodList.meals.map((foodData, index) => {
-                    return(
-                    <div key={index} className="card" style={{width:"18rem"}}>
-                    <img src={foodData.strMealThumb} alt="..." />
-                    <div className="card-body">
-                        <h5 className="card-title">{foodData.strMeal}</h5>
-                        <Link to={"/recipe/"+foodData.idMeal}>  <button className="btn btn-primary">Take me to the recipe </button> </Link>
+        <div id="contentBody">
+            <div class="container">
+                <div class="categories-listing">
+                    <h1>Recipes</h1>
+                    <div class="cat-list">
+                        {store.FoodList.meals &&
+                        store.FoodList.meals.map((foodData, index) => {
+                            return(
+                            <div key={index} className="card" style={{width:"18rem"}}>
+                            <img src={foodData.strMealThumb} alt="..." />
+                            <div className="card-body">
+                                <h5 className="card-title">{foodData.strMeal}</h5>
+                                <Link to={"/recipe/"+foodData.idMeal}>  <button className="btn btn-primary">Take me to the recipe </button> </Link>
+                            </div>
+                            </div>
+                            )
+                        })}
                     </div>
                 </div>
-                    )
-                })}
-           
+            </div>
+        </div>   
         </>
     );
 };

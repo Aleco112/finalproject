@@ -30,19 +30,25 @@ export const SignUp = () => {
   }, [store.user]);
   return (
     <>
-      <h1>Sign Up</h1>
-      <form onSubmit={handleSubmit}>
-        <label for="email">Email</label>
-        <input type="email" name="email" placeholder="Email" />
-        <label for="password">Password</label>
-        <input type="password" name="password" placeholder="Password" />
-        <button type="submit">Submit</button>
-      </form>
-      <div>
-        <h5> si tienes una cuenta </h5>
-        <Link to="/login">
-          <button className="btn btn-primary"> Log in </button>
-        </Link>
+      <div id="contentBody">
+        <div class="container">
+          <div class="sign-box">
+            <h1>Sign Up</h1>
+            <form onSubmit={handleSubmit}>
+              <label for="email">Email</label>
+              <input type="email" name="email" placeholder="Email" />
+              <label for="password">Password</label>
+              <input type="password" name="password" placeholder="Password" />
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            <div>
+              <h5>If you have an account</h5>
+              <Link to="/login">
+                <button className="btn btn-primary"> Log in </button>
+              </Link>
+            </div>
+          </div>
+        </div>        
       </div>
     </>
   );

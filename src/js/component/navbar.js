@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { Context } from "../store/appContext";
+import logo from '../../img/logo.png';
 
 import { getAuth, signOut } from "firebase/auth";
 
@@ -12,7 +13,12 @@ export const Navbar = () => {
     signOut(getAuth());
   };
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav id="navBar" className="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <div class="nav-logo">
+          <img src={logo}/>
+        </div>
+        <div class="nav-menu">
       {store.user ? (
         <div className="container-fluid">
           <button
@@ -80,6 +86,8 @@ export const Navbar = () => {
           </button>
         </>
       )}
+      </div>
+      </div>  
     </nav>
   );
 };

@@ -20,6 +20,7 @@ export const Card = () => {
             store.recipesbyCategory.categories.map((categoryData, index) => {
               return (
                 <div key={index} className="card" style={{ width: "18rem" }}>
+                  <h2>{categoryData.strCategory}</h2>
                   <img src={categoryData.strCategoryThumb} className="card-img-top" alt="..." />
                   <div className="card-body">
                     <h5 className="card-title"></h5>

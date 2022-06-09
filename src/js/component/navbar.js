@@ -45,7 +45,7 @@ export const Navbar = () => {
             <ul className="navbar-nav">
               <li className="nav-item">
                 <Link
-                  to="/login"
+                  to="/home"
                   className="nav-link active"
                   aria-current="page"
                   href="#"
@@ -54,10 +54,15 @@ export const Navbar = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
-                  Contact us!
-                </a>
-              </li>
+              <Link
+                  to="/contactus"
+                  className="nav-link active"
+                  aria-current="page"
+                  href="#"
+                >
+                  Contact us
+                </Link>
+                </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/categories">
                   Recipes by Category

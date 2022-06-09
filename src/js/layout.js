@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
-
+import Contactus from "./component/Contactus.jsx";
 import { Home } from "./views/home";
 import { Demo } from "./views/demo";
 import { Single } from "./views/single";
@@ -36,10 +36,14 @@ const Layout = () => {
               <>
                 <Route exact path="/home">
                   <Home />
-                </Route>
+                 </Route>
+                 <Route exact path="/contactus">
+                  <Contactus />
+                 </Route>
                 <Route exact path="/categories">
                   <RecipesByCategory />
                 </Route>
+
                 <Route exact path="/recipe/:theid">
                   <Recipe />
                 </Route>

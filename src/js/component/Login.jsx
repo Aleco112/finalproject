@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "../../styles/home.css";
 import { useHistory } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { Context } from "../store/appContext";
+
 
 export const Login = () => {
+  const {store, actions}=useContext(Context)
   const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -12,7 +15,7 @@ export const Login = () => {
     signInWithEmailAndPassword (getAuth(), email, password)
      .then((userCredential) => {
         localStorage.setItem("user",userCredential.user.email)
-
+        actions.user(userCredential.user.email)
        
     })
     .then(()=>history.push("/home"))

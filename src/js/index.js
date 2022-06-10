@@ -17,13 +17,13 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const fireBaseConfig = {
-  apiKey: process.env.apiKey,
-  authDomain: process.env.authDomain,
-  projectId: process.env.projectId,
-  storageBucket: process.env.storageBucket,
-  messagingSenderId: process.env.messagingSenderId,
-  appId: process.env.appId,
-  measurementId: process.env.measurementId
+  apiKey: "AIzaSyD78_3SE_xqh5oC9o-bxUgBcXVpZHskvKE",
+  authDomain: "aleco112.firebaseapp.com",
+  projectId: "aleco112",
+  storageBucket: "aleco112.appspot.com",
+  messagingSenderId: "909997142636",
+  appId: "1:909997142636:web:61db21b17f9f65df9dde49",
+  measurementId: "G-3YN4B1LDF5"
 } 
 // Initialize Firebase
 const app = initializeApp(fireBaseConfig);

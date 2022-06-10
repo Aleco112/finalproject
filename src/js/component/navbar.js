@@ -14,11 +14,11 @@ export const Navbar = () => {
   };
   return (
     <nav id="navBar" className="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container">
-        <div class="nav-logo">
+      <div className="container">
+        <div className="nav-logo">
           <img src={logo}/>
         </div>
-        <div class="nav-menu">
+        <div className="nav-menu">
       {store.user ? (
         <div className="container-fluid">
           <button
